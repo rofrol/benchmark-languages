@@ -10,6 +10,9 @@ sudo chrt -f 99 /usr/bin/time -f "\n***\ntime: %E\ncontext switches: %c\nwaits: 
 printf "\nruby"
 touch $2_rb.txt
 sudo chrt -f 99 /usr/bin/time -f "\n***\ntime: %E\ncontext switches: %c\nwaits: %w" ruby sort_lines.rb $1 $2_rb.txt
+printf "\nc++"
+g++ -std=c++11 sort_lines.cpp
+sudo chrt -f 99 /usr/bin/time -f "\n***\ntime: %E\ncontext switches: %c\nwaits: %w" ./a.out $1 $2_go.txt
 
 echo
 echo "For more go to https://news.ycombinator.com/item?id=6559011"
