@@ -1,3 +1,9 @@
+args=( $@ )
+nu=${#args[@]}
+if [[ $nu -eq 0 ]]; then
+	echo "Usage: sh <script> input.txt output"
+	exit
+fi
 # http://stackoverflow.com/questions/9006596/is-the-unix-time-command-accurate-enough-for-benchmarks
 # https://news.ycombinator.com/reply?id=6560202&whence=item%3fid%3d6559011
 printf "\nsh"
