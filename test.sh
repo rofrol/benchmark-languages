@@ -11,6 +11,7 @@ sudo chrt -f 99 /usr/bin/time -f "\n***\ntime: %E\ncontext switches: %c\nwaits: 
 printf "\ngo"
 go build sort_lines.go
 sudo chrt -f 99 /usr/bin/time -f "\n***\ntime: %E\ncontext switches: %c\nwaits: %w" ./sort_lines $1 $2_go.txt
+rm sort_lines
 printf "\npython"
 sudo chrt -f 99 /usr/bin/time -f "\n***\ntime: %E\ncontext switches: %c\nwaits: %w" python -S sort_lines.py $1 $2_py.otxt
 printf "\nruby"
@@ -19,6 +20,7 @@ sudo chrt -f 99 /usr/bin/time -f "\n***\ntime: %E\ncontext switches: %c\nwaits: 
 printf "\nc++"
 g++ -std=c++11 sort_lines.cpp
 sudo chrt -f 99 /usr/bin/time -f "\n***\ntime: %E\ncontext switches: %c\nwaits: %w" ./a.out $1 $2_go.txt
+rm a.out
 
 echo
 echo "For more go to https://news.ycombinator.com/item?id=6559011"
