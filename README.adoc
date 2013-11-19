@@ -1,0 +1,8 @@
+= Benchamrking some languages
+
+just run
+----
+sh test.sh
+----
+
+Based on https://news.ycombinator.com/item?id=6559011
